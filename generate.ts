@@ -1,6 +1,6 @@
-import * as path from "https://deno.land/std@0.184.0/path/mod.ts";
-import * as fs from "https://deno.land/std@0.129.0/fs/mod.ts";
-import { createCanvas, loadImage } from "https://deno.land/x/canvas@v1.4.1/mod.ts";
+import * as path from "std/path/mod.ts";
+import * as fs from "std/fs/mod.ts";
+import { createCanvas, loadImage } from "x/canvas@v1.4.1/mod.ts";
 import { ASSETS_DIR, CACHE_DIR, IMAGE_SUFFIX, COLORS } from "./src/config.ts";
 
 fs.ensureDir(CACHE_DIR);

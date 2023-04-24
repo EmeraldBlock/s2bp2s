@@ -1,5 +1,5 @@
-import { decode } from "https://deno.land/std@0.129.0/encoding/base64.ts";
-import { gunzip } from "https://deno.land/x/compress@v0.4.5/gzip/mod.ts";
+import { decode } from "std/encoding/base64.ts";
+import { gunzip } from "x/compress@v0.4.5/gzip/mod.ts";
 import { validate } from "./blueprint.ts";
 
 const VERSION = "1";

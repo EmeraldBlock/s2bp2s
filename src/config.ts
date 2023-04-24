@@ -1,4 +1,4 @@
-import * as path from "https://deno.land/std@0.184.0/path/mod.ts";
+import * as path from "std/path/mod.ts";
 
 // project layout
 export const ROOT_DIR = path.join(path.dirname(path.fromFileUrl(import.meta.url)), "./../");

@@ -1,6 +1,6 @@
-import * as path from "https://deno.land/std@0.184.0/path/mod.ts";
-import * as fs from "https://deno.land/std@0.129.0/fs/mod.ts";
-import { TextLineStream } from "https://deno.land/std@0.184.0/streams/mod.ts";
+import * as path from "std/path/mod.ts";
+import * as fs from "std/fs/mod.ts";
+import { TextLineStream } from "std/streams/mod.ts";
 import { render } from "./src/renderer.ts";
 import { deserialize } from "./src/serializer.ts";
 import { OUT_DIR } from "./src/config.ts";
