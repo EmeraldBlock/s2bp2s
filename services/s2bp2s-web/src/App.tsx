@@ -2,10 +2,18 @@ import { useEffect, useState } from "react";
 
 function App() {
 	const [inputString, setInputString] = useState("");
-	//const [imageBuffer, setImageBuffer] = useState<ArrayBuffer>();
 	const [image, setImage] = useState("");
 
-	async function renderImage() {}
+	async function renderImage() {
+		if (inputString == "") return;
+		const imageBuffer = await fetch("http://localhost:9374/render", {
+			method: "POST",
+			body: inputString,
+		}).then((data) => data.arrayBuffer());
+
+		const url = window.URL.createObjectURL(new Blob([imageBuffer], { type: "image/png" }));
+		setImage(url);
+	}
 
 	useEffect(() => {
 		renderImage();
