@@ -1,7 +1,7 @@
 import bodyParser from "body-parser";
-import { deserialize } from "../../src/serializer";
+import { deserialize } from "../../src/serializer.ts";
 import express from "express";
-import { render } from "../../src/renderer";
+import { render } from "../../src/renderer.ts";
 
 const app = express();
 const port = 9374;

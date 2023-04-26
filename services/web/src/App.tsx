@@ -35,14 +35,9 @@ function App() {
 				<input
 					type="text"
 					value={inputString}
+					placeholder="Paste blueprint here"
 					onChange={(event) => setInputString(event.target.value)}
 					className="bg-zinc-100 border border-zinc-200 shadow-inner rounded px-2 py-0.5"
-				/>
-				<input
-					type="submit"
-					value="Render"
-					className="bg-blue-500 text-zinc-50 px-4 py-0.5 rounded ml-4"
-					onSubmit={() => renderImage()}
 				/>
 			</div>
 			<div className="relative">
