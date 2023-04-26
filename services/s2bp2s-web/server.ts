@@ -8,6 +8,8 @@ const port = 9374;
 
 app.use(bodyParser.text());
 
+app.use(express.static("dist"));
+
 app.post("/render", async (req, res) => {
 	try {
 		const blueprint = await deserialize(req.body);

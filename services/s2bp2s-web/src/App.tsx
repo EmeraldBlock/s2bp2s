@@ -6,7 +6,7 @@ function App() {
 
 	async function renderImage() {
 		if (inputString == "") return;
-		const imageBuffer = await fetch("http://localhost:9374/render", {
+		const imageBuffer = await fetch("/render", {
 			method: "POST",
 			body: inputString,
 		}).then((data) => data.arrayBuffer());
