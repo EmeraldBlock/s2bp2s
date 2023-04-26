@@ -12,8 +12,10 @@ so they will appear as plain boxes!
 
 ## Usage
 
-* Install [Deno](https://deno.com/runtime).
-* Generate sprites by executing `deno run --allow-read --allow-write generate.ts`.
-* Paste your shapez 2 blueprint string into a text file.
-* Run by executing `cat <FILE> | deno run --allow-read --allow-write main.ts`.
+* Install [Node.js](https://nodejs.org/).
+* Install dependencies.
+* Generate sprites by executing `npx ts-node generate.ts`.
+* Run by executing `npx ts-node cli.ts`.
+  * Paste in your blueprint string when prompted.
+  * Piping works as well.
 * Your image will be found at `out/image.png`.
