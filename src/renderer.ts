@@ -1,5 +1,5 @@
-import * as path from "std/path/mod.ts";
-import { CanvasImageSource, createCanvas, loadImage } from "x/canvas@v1.4.1/mod.ts";
+import * as path from "path";
+import { Image, createCanvas, loadImage } from "canvas";
 import { Blueprint } from "./blueprint.ts";
 import { Rotation, Vector } from "./vector.ts";
 import { buildings, missing } from "./buildings.ts";
@@ -9,7 +9,7 @@ const TILE_SIZE = 64;
 const SKEW = 1;
 const SCALE = 3;
 
-const images: Map<string, CanvasImageSource[]> = new Map();
+const images: Map<string, Image[]> = new Map();
 
 for (const name in buildings) {
     try {

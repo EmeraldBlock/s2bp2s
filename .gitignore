@@ -1,2 +1,6 @@
+# build output
 /cache/
 /out/
+
+# package management
+/node_modules/

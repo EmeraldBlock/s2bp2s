@@ -1,14 +1,14 @@
-import * as path from "std/path/mod.ts";
-import * as fs from "std/fs/mod.ts";
-import { createCanvas, loadImage } from "x/canvas@v1.4.1/mod.ts";
+import * as path from "path";
+import * as fs from "fs/promises";
+import { createCanvas, loadImage } from "canvas";
 import { ASSETS_DIR, CACHE_DIR, IMAGE_SUFFIX, COLORS } from "./src/config.ts";
 
-fs.ensureDir(CACHE_DIR);
+await fs.mkdir(CACHE_DIR, { recursive: true });
 
-for await (const dirEntry of Deno.readDir(ASSETS_DIR)) {
+for await (const dirEntry of await fs.readdir(ASSETS_DIR, { withFileTypes: true })) {
     if (!dirEntry.isFile) continue;
     const image = await loadImage(path.join(ASSETS_DIR, dirEntry.name));
-    const canvas = createCanvas(image.width(), image.height());
+    const canvas = createCanvas(image.width, image.height);
     const context = canvas.getContext("2d");
     context.drawImage(image, 0, 0);
 
@@ -21,6 +21,6 @@ for await (const dirEntry of Deno.readDir(ASSETS_DIR)) {
         }
         const result = createCanvas(canvas.width, canvas.height);
         result.getContext("2d").putImageData(imageData, 0, 0);
-        await Deno.writeFile(path.join(CACHE_DIR, `${dirEntry.name.slice(0, -IMAGE_SUFFIX.length)}-${layer}${IMAGE_SUFFIX}`), result.toBuffer());
+        await fs.writeFile(path.join(CACHE_DIR, `${dirEntry.name.slice(0, -IMAGE_SUFFIX.length)}-${layer}${IMAGE_SUFFIX}`), result.toBuffer());
     }
 }

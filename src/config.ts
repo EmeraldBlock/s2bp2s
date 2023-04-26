@@ -1,7 +1,8 @@
-import * as path from "std/path/mod.ts";
+import * as path from "path";
+import * as url from "url";
 
 // project layout
-export const ROOT_DIR = path.join(path.dirname(path.fromFileUrl(import.meta.url)), "./../");
+export const ROOT_DIR = path.join(path.dirname(url.fileURLToPath(import.meta.url)), "./../");
 export const ASSETS_DIR = path.join(ROOT_DIR, "./assets/");
 export const CACHE_DIR = path.join(ROOT_DIR, "./cache/");
 export const OUT_DIR = path.join(ROOT_DIR, "./out/");
