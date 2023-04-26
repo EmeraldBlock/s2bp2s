@@ -22,7 +22,7 @@ so they will appear as plain boxes!
 * Your image will be found at `out/image.png`.
 
 ### Web
-* Run by executing `cd services/s2bp2s-web` and `npm start`.
+* Run by executing `cd services/web` and `npm start`.
 * Visit [http://localhost:9374](http://localhost:9374) in your browser.
 * Paste in your blueprint string in the text input.
 * Your image will appear on the screen.
