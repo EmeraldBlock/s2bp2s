@@ -4,7 +4,7 @@ _**s**hapez **2** **b**lue**p**rint **to** **s**chematic_
 is a tool to draw a shapez 2 blueprint
 as an easy-to-read 2d image.
 
-## Warning
+### Warning
 
 Currently very WIP.
 **There are no safety checks.**
@@ -16,7 +16,7 @@ so they will appear as plain boxes!
 * Install [Node.js](https://nodejs.org/).
 * Install dependencies.
 
-## CLI
+### CLI
 
 * Generate sprites by executing `npx ts-node generate.ts`.
 * Run by executing `npx ts-node cli.ts`.
@@ -24,7 +24,7 @@ so they will appear as plain boxes!
   * Piping works as well.
 * Your image will be found at `out/image.png`.
 
-## Discord bot
+### Discord bot
 
 * `cd` into `services/bot/`.
 * In `config/`, make a `secrets.ts` following `secrets.template.ts`.

@@ -33,11 +33,11 @@ type Data = {
 };
 
 const client = new Discord.Client({
-	intents: [
-		Discord.GatewayIntentBits.Guilds,
-		Discord.GatewayIntentBits.GuildMessages,
-		Discord.GatewayIntentBits.MessageContent,
-	],
+    intents: [
+        Discord.GatewayIntentBits.Guilds,
+        Discord.GatewayIntentBits.GuildMessages,
+        Discord.GatewayIntentBits.MessageContent,
+    ],
 });
 
 async function initDir<T extends { name: string }>(dir: string): Promise<Discord.Collection<string, T>> {
@@ -129,7 +129,7 @@ async function runBot() {
 }
 
 try {
-	await runBot();
+    await runBot();
 } catch (err) {
     console.error("Failed to start bot.");
     console.error(err);
