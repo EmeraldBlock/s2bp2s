@@ -30,16 +30,15 @@ function App() {
 	}, [inputString]);
 
 	return (
-		<div className="flex flex-col items-center">
-			<div className="mt-32">
-				<input
-					type="text"
-					value={inputString}
-					placeholder="Paste blueprint here"
-					onChange={(event) => setInputString(event.target.value)}
-					className="bg-zinc-100 border border-zinc-200 shadow-inner rounded px-2 py-0.5"
-				/>
-			</div>
+		<div className="flex flex-col items-center py-32">
+			<h1 className="text-4xl font-black mb-8">Shapez 2 Blueprint to Schematic</h1>
+			<input
+				type="text"
+				value={inputString}
+				placeholder="Paste blueprint here"
+				onChange={(event) => setInputString(event.target.value)}
+				className="bg-zinc-100 border border-zinc-200 shadow-inner rounded px-2 py-0.5"
+			/>
 			<div className="relative">
 				{image != "" && (
 					<button
