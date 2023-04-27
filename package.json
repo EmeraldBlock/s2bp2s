@@ -1,15 +1,15 @@
 {
-    "name": "s2bp2s",
-    "description": "shapez 2 blueprint to schematic",
-    "license": "GPL-3.0-only",
-    "private": true,
-    "type": "module",
-    "dependencies": {
-        "canvas": "^2.11.2",
-        "discord.js": "^14.9.0"
-    },
-    "devDependencies": {
-        "ts-node": "^10.9.1",
-        "typescript": "^5.0.4"
-    }
+	"name": "s2bp2s",
+	"description": "shapez 2 blueprint to schematic",
+	"license": "GPL-3.0-only",
+	"private": true,
+	"type": "module",
+	"dependencies": {
+		"canvas": "^2.11.2",
+		"discord.js": "^14.9.0"
+	},
+	"devDependencies": {
+		"ts-node": "^10.9.1",
+		"typescript": "^5.0.4"
+	}
 }

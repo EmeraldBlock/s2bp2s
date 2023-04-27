@@ -11,11 +11,19 @@ Many buildings are missing,
 so they will appear as plain boxes!
 
 ## Usage
-
 * Install [Node.js](https://nodejs.org/).
 * Install dependencies.
 * Generate sprites by executing `npx ts-node generate.ts`.
+
+### CLI
 * Run by executing `npx ts-node cli.ts`.
   * Paste in your blueprint string when prompted.
   * Piping works as well.
 * Your image will be found at `out/image.png`.
+
+### Web
+* Run by executing `cd services/web` and `npm start`.
+* Visit [http://localhost:9374](http://localhost:9374) in your browser.
+* Paste in your blueprint string in the text input.
+* Your image will appear on the screen.
+* Download your image by pressing the download button in the top-left of the image.
