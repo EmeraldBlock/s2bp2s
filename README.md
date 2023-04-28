@@ -14,7 +14,7 @@ so they will appear as plain boxes!
 ## Usage
 
 * Install [Node.js](https://nodejs.org/).
-* Install dependencies.
+* Install dependencies by executing `npm install`.
 * Generate sprites by executing `npx ts-node generate.ts`.
 
 ### CLI
@@ -26,14 +26,14 @@ so they will appear as plain boxes!
 
 ### Discord bot
 
-* `cd` into `services/bot/`.
+* Execute `cd services/bot/`.
 * In `config/`, make a `secrets.ts` following `secrets.template.ts`.
 * Deploy slash commands by executing `npx ts-node deploy-commands.ts`.
 * Run by executing `npx ts-node index.ts`.
 
 ### Web
 
-* Run by executing `cd services/web` and `npm start`.
+* Run by executing `cd services/web/`, `npm install`, and `npm start`.
 * Visit [http://localhost:9374](http://localhost:9374) in your browser.
 * Paste in your blueprint string in the text input.
 * Your image will appear on the screen.
