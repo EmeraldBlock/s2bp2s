@@ -2,5 +2,8 @@
 /cache/
 /out/
 
+# secrets
+secrets.ts
+
 # package management
 /node_modules/
