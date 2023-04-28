@@ -15,10 +15,10 @@ so they will appear as plain boxes!
 
 * Install [Node.js](https://nodejs.org/).
 * Install dependencies.
+* Generate sprites by executing `npx ts-node generate.ts`.
 
 ### CLI
 
-* Generate sprites by executing `npx ts-node generate.ts`.
 * Run by executing `npx ts-node cli.ts`.
   * Paste in your blueprint string when prompted.
   * Piping works as well.
@@ -30,3 +30,11 @@ so they will appear as plain boxes!
 * In `config/`, make a `secrets.ts` following `secrets.template.ts`.
 * Deploy slash commands by executing `npx ts-node deploy-commands.ts`.
 * Run by executing `npx ts-node index.ts`.
+
+### Web
+
+* Run by executing `cd services/web` and `npm start`.
+* Visit [http://localhost:9374](http://localhost:9374) in your browser.
+* Paste in your blueprint string in the text input.
+* Your image will appear on the screen.
+* Download your image by pressing the download button in the top-left of the image.
