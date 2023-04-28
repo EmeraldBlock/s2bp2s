@@ -2,7 +2,7 @@ import * as path from "path";
 import { Image, createCanvas, loadImage } from "canvas";
 import { Blueprint } from "./blueprint.ts";
 import { Rotation, Vector } from "./vector.ts";
-import { buildings, missing } from "./buildings.ts";
+import { buildings, placeholder } from "./buildings.ts";
 import { CACHE_DIR, IMAGE_SIZE, LAYERS } from "./config.ts";
 
 const TILE_SIZE = 64;
@@ -11,12 +11,16 @@ const SCALE = 3;
 
 const images: Map<string, Image[]> = new Map();
 
+const missingImages: string[] = [];
 for (const name in buildings) {
     try {
         images.set(name, await Promise.all(new Array(LAYERS).fill(undefined).map((_, i) => loadImage(path.join(CACHE_DIR, `${name}-${i}.png`)))));
     } catch {
-        console.error(`Missing images for ${name}`);
+        missingImages.push(name);
     }
+}
+if (missingImages.length > 0) {
+    console.error(`Missing images for ${missingImages.join(", ")}`);
 }
 
 const ORIGINS = [
@@ -33,8 +37,8 @@ type Step = {
     sy: number,
     sz: number,
     // for bridging
-    sw?: number,
-    sh?: number,
+    sw: number,
+    sh: number,
     // destination
     x: number,
     y: number,
@@ -59,9 +63,13 @@ function sketch(blueprint: Blueprint) {
         connectors: [[], []],
     };
     const reqs: [Req, Req, Req] = [new Map(), new Map(), new Map()];
+    const missingBuildings: Set<string> = new Set();
     for (const entry of entrys) {
         const name = entry.T.replace("InternalVariant", "");
-        const bounds = buildings[name] ?? missing;
+        const bounds = buildings[name] ?? placeholder;
+        if (bounds === placeholder) {
+            missingBuildings.add(name);
+        }
 
         const r = entry.R;
         const pos = new Vector(entry.X, entry.Y);
@@ -100,6 +108,8 @@ function sketch(blueprint: Blueprint) {
                     sx: 0,
                     sy: 0,
                     sz: 0,
+                    sw: 1,
+                    sh: 1,
                     x,
                     y,
                     r: pr,
@@ -117,36 +127,30 @@ function sketch(blueprint: Blueprint) {
                     if (sz !== 0) {
                         data.connectors[l+sz-1].push(new Vector(x, y).sub(ORIGINS[r]));
                     }
-                    /** @todo x-stretch and xy-stretch */
-                    if (sy !== 0) {
-                        for (let dy = -SCALE+1; dy < 0; ++dy) {
-                            const { x: bx, y: by } = new Vector(0, dy).rotate(r);
+                    for (let dx = sx == 0 ? 0 : -SCALE+1; dx <= 0; ++dx) {
+                        for (let dy = sy == 0 ? 0 : -SCALE+1; dy <= 0; ++dy) {
+                            const { x: bx, y: by } = new Vector(dx, dy).rotate(r);
                             data.layers[l+sz].push({
                                 t: name,
-                                sx,
-                                sy: sy-1/4,
+                                sx: dx == 0 ? sx : sx-1/4,
+                                sy: dy == 0 ? sy : sy-1/4,
                                 sz,
-                                sh: 1/2,
+                                sw: dx == 0 ? 1 : 1/2,
+                                sh: dy == 0 ? 1 : 1/2,
                                 x: x+bx,
                                 y: y+by,
                                 r,
                             });
                         }
                     }
-                    data.layers[l+sz].push({
-                        t: name,
-                        sx,
-                        sy,
-                        sz,
-                        x,
-                        y,
-                        r,
-                    });
                     x -= SKEW;
                     y -= SKEW;
                 }
             }
         }
+    }
+    if (missingBuildings.size > 0) {
+        console.error(`Unknown buildings ${[...missingBuildings].join(", ")}`);
     }
     return data;
 }
@@ -181,28 +185,37 @@ export function render(blueprint: Blueprint) {
         }
         for (const step of data.layers[l]) {
             const name = step.t;
-            const bounds = buildings[name] ?? missing;
+            const bounds = buildings[name] ?? placeholder;
 
             context.save();
             context.translate(step.x, step.y);
             context.rotate(step.r * Math.PI / 2);
 
             if (!images.has(name)) {
-                context.fillStyle = bounds === missing ? "#ff8080" : ["#808080", "#c0c0c0", "#e0e0e0"][l];
-                context.fillRect(0, 0, 1, 1);
                 const { x, y } = bounds.dims;
+                context.fillStyle = ["#808080", "#c0c0c0", "#e0e0e0"][l];
+                context.fillRect(0, 0, 1, 1);
+                if (bounds === placeholder) {
+                    context.fillStyle = "#ff8080";
+                    context.beginPath();
+                    context.moveTo(0, 0);
+                    context.lineTo(1/2, 0);
+                    context.lineTo(0, 1/2);
+                    context.closePath();
+                    context.fill();
+                }
                 if (step.sx === x-1 && step.sy === y-1) {
                     context.lineWidth = 2/TILE_SIZE;
                     context.strokeRect(-(x-1)*SCALE, -(y-1)*SCALE, (x-1)*SCALE+1, (y-1)*SCALE+1);
                 }
-                context.font = `0.125px sans-serif`;
+                context.font = `0.25px monospace`;
                 context.fillStyle = "black";
-                context.fillText(name.replaceAll(/[a-z]/g, ""), 0.1, 0.9);
+                context.fillText(name.replaceAll(/[a-z]/g, ""), 1/16, 1-1/16);
             } else {
                 context.drawImage(
                     images.get(name)![l-step.sz],
                     step.sx * IMAGE_SIZE, (step.sz * bounds.dims.y + step.sy) * IMAGE_SIZE,
-                    IMAGE_SIZE * (step.sw ?? 1), IMAGE_SIZE * (step.sh ?? 1),
+                    IMAGE_SIZE * step.sw, IMAGE_SIZE * step.sh,
                     0, 0,
                     1, 1,
                 );
