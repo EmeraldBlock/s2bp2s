@@ -3,7 +3,7 @@ import * as fs from "fs/promises";
 
 import minimist from "minimist";
 
-import { render } from "./src/renderer.ts";
+import { render, init } from "./src/renderer.ts";
 import { deserialize } from "./src/serializer.ts";
 import { OUT_DIR } from "./src/config.ts";
 
@@ -29,6 +29,8 @@ Options:
         );
         return;
     }
+
+    await init();
 
     await fs.mkdir(OUT_DIR, { recursive: true });
 
@@ -62,7 +64,7 @@ Options:
         }
     })();
 
-    await fs.writeFile(args.o ?? path.join(OUT_DIR, "./image.png"), render(await deserialize(content.trim())));
+    await fs.writeFile(args.o ?? path.join(OUT_DIR, "./image.png"), await render(await deserialize(content.trim())));
 
     console.log("Done.");
 })();

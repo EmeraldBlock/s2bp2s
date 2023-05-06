@@ -17,12 +17,14 @@ export type Command = {
     data: Omit<Discord.SlashCommandBuilder, "addSubcommand" | "addSubcommandGroup">,
     details?: string,
     usage?: string,
+    init?: () => void | Promise<void>,
     auth?: (interaction: Discord.ChatInputCommandInteraction) => boolean,
     execute: (interaction: Discord.ChatInputCommandInteraction, data: Data) => void | Promise<void>,
 };
 
 export type Listener = {
     name: string,
+    init?: () => void | Promise<void>,
     enable: (client: Discord.Client) => void | Promise<void>,
     disable: (client: Discord.Client) => void | Promise<void>,
 };
@@ -40,17 +42,20 @@ const client = new Discord.Client({
     ],
 });
 
-async function initDir<T extends { name: string }>(dir: string): Promise<Discord.Collection<string, T>> {
+async function initDir<T extends { name: string, init?: () => void | Promise<void> }>(dir: string): Promise<Discord.Collection<string, T>> {
     const files = (await readdirSafe(dir)).filter(file => file.endsWith(".ts"));
 
     const collection: Discord.Collection<string, T> = new Discord.Collection();
     for (const file of files) {
         const val = await import(url.pathToFileURL(`${dir}${file}`).href) as { default: T };
         const item = val.default;
-        const name = item.name;
+        const { name, init } = item;
         if (collection.has(name)) {
             console.log(`Duplicate name or alias ${chalk.yellow(name)}.`);
             continue;
+        }
+        if (init !== undefined) {
+            await init();
         }
         collection.set(name, item);
     }

@@ -10,17 +10,21 @@ const SKEW = 1;
 const SCALE = 3;
 
 const images: Map<string, Image[]> = new Map();
-
 const missingImages: string[] = [];
-for (const name in buildings) {
-    try {
-        images.set(name, await Promise.all(new Array(LAYERS).fill(undefined).map((_, i) => loadImage(path.join(CACHE_DIR, `${name}-${i}.png`)))));
-    } catch {
-        missingImages.push(name);
+
+let inited = false;
+export async function init() {
+    for (const name in buildings) {
+        try {
+            images.set(name, await Promise.all(new Array(LAYERS).fill(undefined).map((_, i) => loadImage(path.join(CACHE_DIR, `${name}-${i}.png`)))));
+        } catch {
+            missingImages.push(name);
+        }
     }
-}
-if (missingImages.length > 0) {
-    console.error(`Missing images for ${missingImages.join(", ")}`);
+    if (missingImages.length > 0) {
+        console.error(`Missing images for ${missingImages.join(", ")}`);
+    }
+    inited = true;
 }
 
 const ORIGINS = [
@@ -155,8 +159,12 @@ function sketch(blueprint: Blueprint) {
     return data;
 }
 
-export function render(blueprint: Blueprint) {
+export async function render(blueprint: Blueprint) {
     const data = sketch(blueprint);
+
+    if (!inited) {
+        await init();
+    }
 
     const canvas = createCanvas((data.max.x-data.min.x) * TILE_SIZE * SCALE, (data.max.y-data.min.y) * TILE_SIZE * SCALE);
     const context = canvas.getContext("2d");

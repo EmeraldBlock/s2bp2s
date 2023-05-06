@@ -13,7 +13,7 @@ app.use(express.static("dist"));
 app.post("/render", async (req, res) => {
 	try {
 		const blueprint = await deserialize(req.body);
-		res.send(render(blueprint));
+		res.send(await render(blueprint));
 	} catch (err) {
 		res.sendStatus(400);
 	}
