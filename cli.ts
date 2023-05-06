@@ -40,7 +40,7 @@ Options:
                 for await (const chunk of stream) {
                     const lines = (chunk as string).split(/\r?\n/g);
                     lines[0] = buf + lines[0];
-                    buf = lines.pop();
+                    buf = lines.pop()!;
                     for (const line of lines) {
                         yield line;
                     }
@@ -50,13 +50,15 @@ Options:
     }
 
     const content = await (async () => {
-        if ("i" in args) {
+        if (args.i !== undefined) {
             return await fs.readFile(args.i, "utf-8");
         } else {
             process.stdout.write("Blueprint: ");
             for await (const line of textLineStream(process.stdin)) {
                 return line;
             }
+            // empty stream
+            return "";
         }
     })();
 

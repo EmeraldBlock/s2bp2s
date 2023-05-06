@@ -18,7 +18,7 @@ export default {
         ),
     desc: "Draws a schematic of a blueprint string.",
     execute: async (interaction, data) => {
-        const serialized = interaction.options.getString("blueprint");
+        const serialized = interaction.options.getString("blueprint")!;
         try {
             const blueprint = await deserialize(serialized);
             await interaction.deferReply();
