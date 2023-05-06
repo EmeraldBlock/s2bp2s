@@ -13,6 +13,9 @@ so they will appear as plain boxes!
 
 ## Usage
 
+Note: the ts-node ESM loader
+is currently [broken](https://github.com/TypeStrong/ts-node/issues/1997) on Node.js v20.
+
 * Install [Node.js](https://nodejs.org/).
 * Install dependencies.
 * Generate sprites by executing `npx ts-node generate.ts`.
