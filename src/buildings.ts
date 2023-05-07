@@ -63,7 +63,7 @@ export const buildings: Record<string, Bounds> = {
 
     Merger2To1L: unitMaker([0, 1], [0]),
     Merger2To1R: unitMaker([0, 3], [0]),
-    MergerTShape: unitMaker([1, 3], [0]),
+    MergerTShape: unitMaker([0, 2], [3]), // has weird orientation
     Merger3To1: unitMaker([0, 1, 3], [0]),
 
     Lift1UpForward: liftMaker(true, 0),
