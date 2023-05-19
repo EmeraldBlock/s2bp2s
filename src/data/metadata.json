@@ -1,0 +1,1822 @@
+[
+  {
+    "Id": "BeltBuilding",
+    "Title": "Conveyor Belt",
+    "Description": "Allows to transport items. You can use R to change the start/end rotation, C to place checkpoints and F to flip the orientation.\n\nOnce you have unlocked layers, use E and Q while dragging to transport items between layers.",
+    "Variants": [
+      {
+        "Id": "BeltDefaultVariant",
+        "Title": "Belt",
+        "Removable": true,
+        "Selectable": true,
+        "PlayerBuildable": true,
+        "AutoConnectBelts": true,
+        "BlueprintCost": 1,
+        "PipetteOverrideVariantId": null,
+        "InternalVariants": [
+          {
+            "Id": "BeltDefaultForwardInternalVariant",
+            "MirroredInternalVariantId": "BeltDefaultLeftInternalVariant",
+            "Tiles": [{ "x": 0, "y": 0, "z": 0 }],
+            "BeltInputs": [
+              { "Position_L": { "x": 0, "y": 0, "z": 0 }, "Direction_L": 2 }
+            ],
+            "BeltOutputs": [
+              { "Position_L": { "x": 0, "y": 0, "z": 0 }, "Direction_L": 0 }
+            ],
+            "FluidContainers": []
+          },
+          {
+            "Id": "BeltDefaultRightInternalVariant",
+            "MirroredInternalVariantId": "BeltDefaultForwardInternalVariant",
+            "Tiles": [{ "x": 0, "y": 0, "z": 0 }],
+            "BeltInputs": [
+              { "Position_L": { "x": 0, "y": 0, "z": 0 }, "Direction_L": 2 }
+            ],
+            "BeltOutputs": [
+              { "Position_L": { "x": 0, "y": 0, "z": 0 }, "Direction_L": 1 }
+            ],
+            "FluidContainers": []
+          },
+          {
+            "Id": "BeltDefaultLeftInternalVariant",
+            "MirroredInternalVariantId": "BeltDefaultRightInternalVariant",
+            "Tiles": [{ "x": 0, "y": 0, "z": 0 }],
+            "BeltInputs": [
+              { "Position_L": { "x": 0, "y": 0, "z": 0 }, "Direction_L": 2 }
+            ],
+            "BeltOutputs": [
+              { "Position_L": { "x": 0, "y": 0, "z": 0 }, "Direction_L": 3 }
+            ],
+            "FluidContainers": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Id": "ExtractorBuilding",
+    "Title": "Extractor",
+    "Description": "Extracts shapes, needs to be placed on a shape patch.",
+    "Variants": [
+      {
+        "Id": "ExtractorDefaultVariant",
+        "Title": "Extractor",
+        "Removable": true,
+        "Selectable": true,
+        "PlayerBuildable": true,
+        "AutoConnectBelts": true,
+        "BlueprintCost": 1,
+        "PipetteOverrideVariantId": null,
+        "InternalVariants": [
+          {
+            "Id": "ExtractorDefaultInternalVariant",
+            "MirroredInternalVariantId": null,
+            "Tiles": [{ "x": 0, "y": 0, "z": 0 }],
+            "BeltInputs": [],
+            "BeltOutputs": [
+              { "Position_L": { "x": 0, "y": 0, "z": 0 }, "Direction_L": 0 }
+            ],
+            "FluidContainers": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Id": "LiftBuilding",
+    "Title": "Belt Lift",
+    "Description": "Tranports items between layers",
+    "Variants": [
+      {
+        "Id": "Lift1UpForwardVariant",
+        "Title": "Lift Up (Front)",
+        "Removable": true,
+        "Selectable": true,
+        "PlayerBuildable": true,
+        "AutoConnectBelts": true,
+        "BlueprintCost": 1,
+        "PipetteOverrideVariantId": "BeltDefaultVariant",
+        "InternalVariants": [
+          {
+            "Id": "Lift1UpForwardInternalVariant",
+            "MirroredInternalVariantId": null,
+            "Tiles": [
+              { "x": 0, "y": 0, "z": 0 },
+              { "x": 0, "y": 0, "z": 1 }
+            ],
+            "BeltInputs": [
+              { "Position_L": { "x": 0, "y": 0, "z": 0 }, "Direction_L": 2 }
+            ],
+            "BeltOutputs": [
+              { "Position_L": { "x": 0, "y": 0, "z": 1 }, "Direction_L": 0 }
+            ],
+            "FluidContainers": []
+          }
+        ]
+      },
+      {
+        "Id": "Lift1UpRightVariant",
+        "Title": "Lift Up (Right)",
+        "Removable": true,
+        "Selectable": true,
+        "PlayerBuildable": true,
+        "AutoConnectBelts": true,
+        "BlueprintCost": 1,
+        "PipetteOverrideVariantId": "BeltDefaultVariant",
+        "InternalVariants": [
+          {
+            "Id": "Lift1UpRightInternalVariant",
+            "MirroredInternalVariantId": null,
+            "Tiles": [
+              { "x": 0, "y": 0, "z": 0 },
+              { "x": 0, "y": 0, "z": 1 }
+            ],
+            "BeltInputs": [
+              { "Position_L": { "x": 0, "y": 0, "z": 0 }, "Direction_L": 2 }
+            ],
+            "BeltOutputs": [
+              { "Position_L": { "x": 0, "y": 0, "z": 1 }, "Direction_L": 1 }
+            ],
+            "FluidContainers": []
+          }
+        ]
+      },
+      {
+        "Id": "Lift1UpBackwardVariant",
+        "Title": "Lift Up (Back)",
+        "Removable": true,
+        "Selectable": true,
+        "PlayerBuildable": true,
+        "AutoConnectBelts": true,
+        "BlueprintCost": 1,
+        "PipetteOverrideVariantId": "BeltDefaultVariant",
+        "InternalVariants": [
+          {
+            "Id": "Lift1UpBackwardInternalVariant",
+            "MirroredInternalVariantId": null,
+            "Tiles": [
+              { "x": 0, "y": 0, "z": 0 },
+              { "x": 0, "y": 0, "z": 1 }
+            ],
+            "BeltInputs": [
+              { "Position_L": { "x": 0, "y": 0, "z": 0 }, "Direction_L": 2 }
+            ],
+            "BeltOutputs": [
+              { "Position_L": { "x": 0, "y": 0, "z": 1 }, "Direction_L": 2 }
+            ],
+            "FluidContainers": []
+          }
+        ]
+      },
+      {
+        "Id": "Lift1UpLeftVariant",
+        "Title": "Lift Up (Left)",
+        "Removable": true,
+        "Selectable": true,
+        "PlayerBuildable": true,
+        "AutoConnectBelts": true,
+        "BlueprintCost": 1,
+        "PipetteOverrideVariantId": "BeltDefaultVariant",
+        "InternalVariants": [
+          {
+            "Id": "Lift1UpLeftInternalVariant",
+            "MirroredInternalVariantId": null,
+            "Tiles": [
+              { "x": 0, "y": 0, "z": 0 },
+              { "x": 0, "y": 0, "z": 1 }
+            ],
+            "BeltInputs": [
+              { "Position_L": { "x": 0, "y": 0, "z": 0 }, "Direction_L": 2 }
+            ],
+            "BeltOutputs": [
+              { "Position_L": { "x": 0, "y": 0, "z": 1 }, "Direction_L": 3 }
+            ],
+            "FluidContainers": []
+          }
+        ]
+      },
+      {
+        "Id": "Lift1DownForwardVariant",
+        "Title": "Lift Down (Front)",
+        "Removable": true,
+        "Selectable": true,
+        "PlayerBuildable": true,
+        "AutoConnectBelts": true,
+        "BlueprintCost": 1,
+        "PipetteOverrideVariantId": "BeltDefaultVariant",
+        "InternalVariants": [
+          {
+            "Id": "Lift1DownForwardInternalVariant",
+            "MirroredInternalVariantId": null,
+            "Tiles": [
+              { "x": 0, "y": 0, "z": -1 },
+              { "x": 0, "y": 0, "z": 0 }
+            ],
+            "BeltInputs": [
+              { "Position_L": { "x": 0, "y": 0, "z": 0 }, "Direction_L": 2 }
+            ],
+            "BeltOutputs": [
+              { "Position_L": { "x": 0, "y": 0, "z": -1 }, "Direction_L": 0 }
+            ],
+            "FluidContainers": []
+          }
+        ]
+      },
+      {
+        "Id": "Lift1DownRightVariant",
+        "Title": "Lift Down (Right)",
+        "Removable": true,
+        "Selectable": true,
+        "PlayerBuildable": true,
+        "AutoConnectBelts": true,
+        "BlueprintCost": 1,
+        "PipetteOverrideVariantId": "BeltDefaultVariant",
+        "InternalVariants": [
+          {
+            "Id": "Lift1DownRightInternalVariant",
+            "MirroredInternalVariantId": null,
+            "Tiles": [
+              { "x": 0, "y": 0, "z": 0 },
+              { "x": 0, "y": 0, "z": -1 }
+            ],
+            "BeltInputs": [
+              { "Position_L": { "x": 0, "y": 0, "z": 0 }, "Direction_L": 2 }
+            ],
+            "BeltOutputs": [
+              { "Position_L": { "x": 0, "y": 0, "z": -1 }, "Direction_L": 1 }
+            ],
+            "FluidContainers": []
+          }
+        ]
+      },
+      {
+        "Id": "Lift1DownBackwardVariant",
+        "Title": "Lfit Down (Back)",
+        "Removable": true,
+        "Selectable": true,
+        "PlayerBuildable": true,
+        "AutoConnectBelts": true,
+        "BlueprintCost": 1,
+        "PipetteOverrideVariantId": "BeltDefaultVariant",
+        "InternalVariants": [
+          {
+            "Id": "Lift1DownBackwardInternalVariant",
+            "MirroredInternalVariantId": null,
+            "Tiles": [
+              { "x": 0, "y": 0, "z": -1 },
+              { "x": 0, "y": 0, "z": 0 }
+            ],
+            "BeltInputs": [
+              { "Position_L": { "x": 0, "y": 0, "z": 0 }, "Direction_L": 2 }
+            ],
+            "BeltOutputs": [
+              { "Position_L": { "x": 0, "y": 0, "z": -1 }, "Direction_L": 2 }
+            ],
+            "FluidContainers": []
+          }
+        ]
+      },
+      {
+        "Id": "Lift1DownLeftVariant",
+        "Title": "Lift Down (Left)",
+        "Removable": true,
+        "Selectable": true,
+        "PlayerBuildable": true,
+        "AutoConnectBelts": true,
+        "BlueprintCost": 1,
+        "PipetteOverrideVariantId": "BeltDefaultVariant",
+        "InternalVariants": [
+          {
+            "Id": "Lift1DownLeftInternalVariant",
+            "MirroredInternalVariantId": null,
+            "Tiles": [
+              { "x": 0, "y": 0, "z": 0 },
+              { "x": 0, "y": 0, "z": -1 }
+            ],
+            "BeltInputs": [
+              { "Position_L": { "x": 0, "y": 0, "z": 0 }, "Direction_L": 2 }
+            ],
+            "BeltOutputs": [
+              { "Position_L": { "x": 0, "y": 0, "z": -1 }, "Direction_L": 3 }
+            ],
+            "FluidContainers": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Id": "SplitterBuilding",
+    "Title": "Splitter",
+    "Description": "Allows to split a belt into multiple belts.",
+    "Variants": [
+      {
+        "Id": "Splitter1To2Variant",
+        "Title": "Splitter",
+        "Removable": true,
+        "Selectable": true,
+        "PlayerBuildable": true,
+        "AutoConnectBelts": true,
+        "BlueprintCost": 1,
+        "PipetteOverrideVariantId": "BeltDefaultVariant",
+        "InternalVariants": [
+          {
+            "Id": "Splitter1To2LInternalVariant",
+            "MirroredInternalVariantId": "Splitter1To2RInternalVariant",
+            "Tiles": [{ "x": 0, "y": 0, "z": 0 }],
+            "BeltInputs": [
+              { "Position_L": { "x": 0, "y": 0, "z": 0 }, "Direction_L": 2 }
+            ],
+            "BeltOutputs": [
+              { "Position_L": { "x": 0, "y": 0, "z": 0 }, "Direction_L": 0 },
+              { "Position_L": { "x": 0, "y": 0, "z": 0 }, "Direction_L": 3 }
+            ],
+            "FluidContainers": []
+          },
+          {
+            "Id": "Splitter1To2RInternalVariant",
+            "MirroredInternalVariantId": "Splitter1To2LInternalVariant",
+            "Tiles": [{ "x": 0, "y": 0, "z": 0 }],
+            "BeltInputs": [
+              { "Position_L": { "x": 0, "y": 0, "z": 0 }, "Direction_L": 2 }
+            ],
+            "BeltOutputs": [
+              { "Position_L": { "x": 0, "y": 0, "z": 0 }, "Direction_L": 0 },
+              { "Position_L": { "x": 0, "y": 0, "z": 0 }, "Direction_L": 1 }
+            ],
+            "FluidContainers": []
+          }
+        ]
+      },
+      {
+        "Id": "SplitterTShapeVariant",
+        "Title": "T-Splitter",
+        "Removable": true,
+        "Selectable": true,
+        "PlayerBuildable": true,
+        "AutoConnectBelts": true,
+        "BlueprintCost": 1,
+        "PipetteOverrideVariantId": "BeltDefaultVariant",
+        "InternalVariants": [
+          {
+            "Id": "SplitterTShapeInternalVariant",
+            "MirroredInternalVariantId": null,
+            "Tiles": [{ "x": 0, "y": 0, "z": 0 }],
+            "BeltInputs": [
+              { "Position_L": { "x": 0, "y": 0, "z": 0 }, "Direction_L": 2 }
+            ],
+            "BeltOutputs": [
+              { "Position_L": { "x": 0, "y": 0, "z": 0 }, "Direction_L": 3 },
+              { "Position_L": { "x": 0, "y": 0, "z": 0 }, "Direction_L": 1 }
+            ],
+            "FluidContainers": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Id": "CutterBuilding",
+    "Title": "Cutter",
+    "Description": "Cuts shapes into half, independent of its rotation.",
+    "Variants": [
+      {
+        "Id": "CutterDefaultVariant",
+        "Title": "Cutter",
+        "Removable": true,
+        "Selectable": true,
+        "PlayerBuildable": true,
+        "AutoConnectBelts": true,
+        "BlueprintCost": 2,
+        "PipetteOverrideVariantId": null,
+        "InternalVariants": [
+          {
+            "Id": "CutterDefaultInternalVariant",
+            "MirroredInternalVariantId": null,
+            "Tiles": [
+              { "x": 0, "y": 0, "z": 0 },
+              { "x": 0, "y": -1, "z": 0 }
+            ],
+            "BeltInputs": [
+              { "Position_L": { "x": 0, "y": 0, "z": 0 }, "Direction_L": 2 }
+            ],
+            "BeltOutputs": [
+              { "Position_L": { "x": 0, "y": -1, "z": 0 }, "Direction_L": 0 },
+              { "Position_L": { "x": 0, "y": 0, "z": 0 }, "Direction_L": 0 }
+            ],
+            "FluidContainers": []
+          }
+        ]
+      },
+      {
+        "Id": "CutterHalfVariant",
+        "Title": "Half Cutter",
+        "Removable": true,
+        "Selectable": true,
+        "PlayerBuildable": true,
+        "AutoConnectBelts": true,
+        "BlueprintCost": 1,
+        "PipetteOverrideVariantId": null,
+        "InternalVariants": [
+          {
+            "Id": "CutterHalfInternalVariant",
+            "MirroredInternalVariantId": null,
+            "Tiles": [{ "x": 0, "y": 0, "z": 0 }],
+            "BeltInputs": [
+              { "Position_L": { "x": 0, "y": 0, "z": 0 }, "Direction_L": 2 }
+            ],
+            "BeltOutputs": [
+              { "Position_L": { "x": 0, "y": 0, "z": 0 }, "Direction_L": 0 }
+            ],
+            "FluidContainers": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Id": "MergerBuilding",
+    "Title": "Merger",
+    "Description": "Allows to merge conveyor belts.",
+    "Variants": [
+      {
+        "Id": "Merger2To1Variant",
+        "Title": "Merger",
+        "Removable": true,
+        "Selectable": true,
+        "PlayerBuildable": true,
+        "AutoConnectBelts": true,
+        "BlueprintCost": 1,
+        "PipetteOverrideVariantId": "BeltDefaultVariant",
+        "InternalVariants": [
+          {
+            "Id": "Merger2To1LInternalVariant",
+            "MirroredInternalVariantId": "Merger2To1RInternalVariant",
+            "Tiles": [{ "x": 0, "y": 0, "z": 0 }],
+            "BeltInputs": [
+              { "Position_L": { "x": 0, "y": 0, "z": 0 }, "Direction_L": 2 },
+              { "Position_L": { "x": 0, "y": 0, "z": 0 }, "Direction_L": 3 }
+            ],
+            "BeltOutputs": [
+              { "Position_L": { "x": 0, "y": 0, "z": 0 }, "Direction_L": 0 }
+            ],
+            "FluidContainers": []
+          },
+          {
+            "Id": "Merger2To1RInternalVariant",
+            "MirroredInternalVariantId": "Merger2To1LInternalVariant",
+            "Tiles": [{ "x": 0, "y": 0, "z": 0 }],
+            "BeltInputs": [
+              { "Position_L": { "x": 0, "y": 0, "z": 0 }, "Direction_L": 2 },
+              { "Position_L": { "x": 0, "y": 0, "z": 0 }, "Direction_L": 1 }
+            ],
+            "BeltOutputs": [
+              { "Position_L": { "x": 0, "y": 0, "z": 0 }, "Direction_L": 0 }
+            ],
+            "FluidContainers": []
+          }
+        ]
+      },
+      {
+        "Id": "Merger3To1Variant",
+        "Title": "3-Way Merger",
+        "Removable": true,
+        "Selectable": true,
+        "PlayerBuildable": true,
+        "AutoConnectBelts": true,
+        "BlueprintCost": 1,
+        "PipetteOverrideVariantId": "BeltDefaultVariant",
+        "InternalVariants": [
+          {
+            "Id": "Merger3To1InternalVariant",
+            "MirroredInternalVariantId": null,
+            "Tiles": [{ "x": 0, "y": 0, "z": 0 }],
+            "BeltInputs": [
+              { "Position_L": { "x": 0, "y": 0, "z": 0 }, "Direction_L": 2 },
+              { "Position_L": { "x": 0, "y": 0, "z": 0 }, "Direction_L": 3 },
+              { "Position_L": { "x": 0, "y": 0, "z": 0 }, "Direction_L": 1 }
+            ],
+            "BeltOutputs": [
+              { "Position_L": { "x": 0, "y": 0, "z": 0 }, "Direction_L": 0 }
+            ],
+            "FluidContainers": []
+          }
+        ]
+      },
+      {
+        "Id": "MergerTShapeVariant",
+        "Title": "T-Merger",
+        "Removable": true,
+        "Selectable": true,
+        "PlayerBuildable": true,
+        "AutoConnectBelts": true,
+        "BlueprintCost": 1,
+        "PipetteOverrideVariantId": "BeltDefaultVariant",
+        "InternalVariants": [
+          {
+            "Id": "MergerTShapeInternalVariant",
+            "MirroredInternalVariantId": null,
+            "Tiles": [{ "x": 0, "y": 0, "z": 0 }],
+            "BeltInputs": [
+              { "Position_L": { "x": 0, "y": 0, "z": 0 }, "Direction_L": 2 },
+              { "Position_L": { "x": 0, "y": 0, "z": 0 }, "Direction_L": 0 }
+            ],
+            "BeltOutputs": [
+              { "Position_L": { "x": 0, "y": 0, "z": 0 }, "Direction_L": 3 }
+            ],
+            "FluidContainers": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Id": "RotatorBuilding",
+    "Title": "Rotater",
+    "Description": "Rotates the shape content, but keeps the orientation of the origin indicator.",
+    "Variants": [
+      {
+        "Id": "RotatorOneQuadVariant",
+        "Title": "90\u00b0 Rotater",
+        "Removable": true,
+        "Selectable": true,
+        "PlayerBuildable": true,
+        "AutoConnectBelts": true,
+        "BlueprintCost": 1,
+        "PipetteOverrideVariantId": null,
+        "InternalVariants": [
+          {
+            "Id": "RotatorOneQuadInternalVariant",
+            "MirroredInternalVariantId": null,
+            "Tiles": [{ "x": 0, "y": 0, "z": 0 }],
+            "BeltInputs": [
+              { "Position_L": { "x": 0, "y": 0, "z": 0 }, "Direction_L": 2 }
+            ],
+            "BeltOutputs": [
+              { "Position_L": { "x": 0, "y": 0, "z": 0 }, "Direction_L": 0 }
+            ],
+            "FluidContainers": []
+          }
+        ]
+      },
+      {
+        "Id": "RotatorOneQuadCCWVariant",
+        "Title": "90\u00b0 Rotater (CCW)",
+        "Removable": true,
+        "Selectable": true,
+        "PlayerBuildable": true,
+        "AutoConnectBelts": true,
+        "BlueprintCost": 1,
+        "PipetteOverrideVariantId": null,
+        "InternalVariants": [
+          {
+            "Id": "RotatorOneQuadCCWInternalVariant",
+            "MirroredInternalVariantId": null,
+            "Tiles": [{ "x": 0, "y": 0, "z": 0 }],
+            "BeltInputs": [
+              { "Position_L": { "x": 0, "y": 0, "z": 0 }, "Direction_L": 2 }
+            ],
+            "BeltOutputs": [
+              { "Position_L": { "x": 0, "y": 0, "z": 0 }, "Direction_L": 0 }
+            ],
+            "FluidContainers": []
+          }
+        ]
+      },
+      {
+        "Id": "RotatorHalfVariant",
+        "Title": "180\u00b0 Rotater",
+        "Removable": true,
+        "Selectable": true,
+        "PlayerBuildable": true,
+        "AutoConnectBelts": true,
+        "BlueprintCost": 1,
+        "PipetteOverrideVariantId": null,
+        "InternalVariants": [
+          {
+            "Id": "RotatorHalfInternalVariant",
+            "MirroredInternalVariantId": null,
+            "Tiles": [{ "x": 0, "y": 0, "z": 0 }],
+            "BeltInputs": [
+              { "Position_L": { "x": 0, "y": 0, "z": 0 }, "Direction_L": 2 }
+            ],
+            "BeltOutputs": [
+              { "Position_L": { "x": 0, "y": 0, "z": 0 }, "Direction_L": 0 }
+            ],
+            "FluidContainers": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Id": "PipeBuilding",
+    "Title": "Pipe",
+    "Description": "Allows to transport fluids. You can use R to change the start/end rotation, C to place checkpoints and F to flip the orientation.\n\nOnce you have unlocked layers, use E and Q while dragging to transport fluids between layers.",
+    "Variants": [
+      {
+        "Id": "PipeDefaultVariant",
+        "Title": "Pipe",
+        "Removable": true,
+        "Selectable": true,
+        "PlayerBuildable": true,
+        "AutoConnectBelts": true,
+        "BlueprintCost": 1,
+        "PipetteOverrideVariantId": null,
+        "InternalVariants": [
+          {
+            "Id": "PipeForwardInternalVariant",
+            "MirroredInternalVariantId": null,
+            "Tiles": [{ "x": 0, "y": 0, "z": 0 }],
+            "BeltInputs": [],
+            "BeltOutputs": [],
+            "FluidContainers": [
+              {
+                "Name": "Pipe",
+                "Max": 50.0,
+                "AllowDrain": true,
+                "AllowGain": true,
+                "Position_L": { "x": 0.0, "y": 0.0, "z": 0.0 },
+                "Connections": [
+                  {
+                    "Position_L": { "x": 0, "y": 0, "z": 0 },
+                    "Direction_L": 2
+                  },
+                  { "Position_L": { "x": 0, "y": 0, "z": 0 }, "Direction_L": 0 }
+                ]
+              }
+            ]
+          },
+          {
+            "Id": "PipeRightInternalVariant",
+            "MirroredInternalVariantId": null,
+            "Tiles": [{ "x": 0, "y": 0, "z": 0 }],
+            "BeltInputs": [],
+            "BeltOutputs": [],
+            "FluidContainers": [
+              {
+                "Name": "Pipe",
+                "Max": 50.0,
+                "AllowDrain": true,
+                "AllowGain": true,
+                "Position_L": { "x": 0.0, "y": 0.0, "z": 0.0 },
+                "Connections": [
+                  {
+                    "Position_L": { "x": 0, "y": 0, "z": 0 },
+                    "Direction_L": 2
+                  },
+                  { "Position_L": { "x": 0, "y": 0, "z": 0 }, "Direction_L": 1 }
+                ]
+              }
+            ]
+          },
+          {
+            "Id": "PipeLeftInternalVariant",
+            "MirroredInternalVariantId": null,
+            "Tiles": [{ "x": 0, "y": 0, "z": 0 }],
+            "BeltInputs": [],
+            "BeltOutputs": [],
+            "FluidContainers": [
+              {
+                "Name": "Pipe",
+                "Max": 50.0,
+                "AllowDrain": true,
+                "AllowGain": true,
+                "Position_L": { "x": 0.0, "y": 0.0, "z": 0.0 },
+                "Connections": [
+                  {
+                    "Position_L": { "x": 0, "y": 0, "z": 0 },
+                    "Direction_L": 2
+                  },
+                  { "Position_L": { "x": 0, "y": 0, "z": 0 }, "Direction_L": 3 }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "Id": "PipeJunctionVariant",
+        "Title": "Pipe Junction",
+        "Removable": true,
+        "Selectable": true,
+        "PlayerBuildable": true,
+        "AutoConnectBelts": true,
+        "BlueprintCost": 1,
+        "PipetteOverrideVariantId": "PipeDefaultVariant",
+        "InternalVariants": [
+          {
+            "Id": "PipeJunctionInternalVariant",
+            "MirroredInternalVariantId": null,
+            "Tiles": [{ "x": 0, "y": 0, "z": 0 }],
+            "BeltInputs": [],
+            "BeltOutputs": [],
+            "FluidContainers": [
+              {
+                "Name": "Pipe",
+                "Max": 50.0,
+                "AllowDrain": true,
+                "AllowGain": true,
+                "Position_L": { "x": 0.0, "y": 0.0, "z": 0.0 },
+                "Connections": [
+                  {
+                    "Position_L": { "x": 0, "y": 0, "z": 0 },
+                    "Direction_L": 0
+                  },
+                  {
+                    "Position_L": { "x": 0, "y": 0, "z": 0 },
+                    "Direction_L": 1
+                  },
+                  { "Position_L": { "x": 0, "y": 0, "z": 0 }, "Direction_L": 3 }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "Id": "PipeCrossVariant",
+        "Title": "Pipe Cross",
+        "Removable": true,
+        "Selectable": true,
+        "PlayerBuildable": true,
+        "AutoConnectBelts": true,
+        "BlueprintCost": 1,
+        "PipetteOverrideVariantId": "PipeDefaultVariant",
+        "InternalVariants": [
+          {
+            "Id": "PipeCrossInternalVariant",
+            "MirroredInternalVariantId": null,
+            "Tiles": [{ "x": 0, "y": 0, "z": 0 }],
+            "BeltInputs": [],
+            "BeltOutputs": [],
+            "FluidContainers": [
+              {
+                "Name": "PipeCross",
+                "Max": 50.0,
+                "AllowDrain": true,
+                "AllowGain": true,
+                "Position_L": { "x": 0.0, "y": 0.0, "z": 0.0 },
+                "Connections": [
+                  {
+                    "Position_L": { "x": 0, "y": 0, "z": 0 },
+                    "Direction_L": 0
+                  },
+                  {
+                    "Position_L": { "x": 0, "y": 0, "z": 0 },
+                    "Direction_L": 1
+                  },
+                  {
+                    "Position_L": { "x": 0, "y": 0, "z": 0 },
+                    "Direction_L": 2
+                  },
+                  { "Position_L": { "x": 0, "y": 0, "z": 0 }, "Direction_L": 3 }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Id": "PumpBuilding",
+    "Title": "Pump",
+    "Description": "Allows to extract fluids, needs to be placed on a fluid patch.",
+    "Variants": [
+      {
+        "Id": "PumpDefaultVariant",
+        "Title": "Pump",
+        "Removable": true,
+        "Selectable": true,
+        "PlayerBuildable": true,
+        "AutoConnectBelts": true,
+        "BlueprintCost": 1,
+        "PipetteOverrideVariantId": null,
+        "InternalVariants": [
+          {
+            "Id": "PumpDefaultInternalVariant",
+            "MirroredInternalVariantId": null,
+            "Tiles": [{ "x": 0, "y": 0, "z": 0 }],
+            "BeltInputs": [],
+            "BeltOutputs": [],
+            "FluidContainers": [
+              {
+                "Name": "Pump",
+                "Max": 150.0,
+                "AllowDrain": true,
+                "AllowGain": false,
+                "Position_L": { "x": 0.0, "y": 0.0, "z": 0.0 },
+                "Connections": [
+                  { "Position_L": { "x": 0, "y": 0, "z": 0 }, "Direction_L": 0 }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Id": "MixerBuilding",
+    "Title": "Color Mixer",
+    "Description": "Allows to mix colors using additive color mixing (RGB).",
+    "Variants": [
+      {
+        "Id": "MixerDefaultVariant",
+        "Title": "Fluid Mixer",
+        "Removable": true,
+        "Selectable": true,
+        "PlayerBuildable": true,
+        "AutoConnectBelts": true,
+        "BlueprintCost": 5,
+        "PipetteOverrideVariantId": null,
+        "InternalVariants": [
+          {
+            "Id": "MixerDefaultInternalVariant",
+            "MirroredInternalVariantId": null,
+            "Tiles": [
+              { "x": 0, "y": 0, "z": 0 },
+              { "x": 1, "y": 0, "z": 0 },
+              { "x": 2, "y": 0, "z": 0 },
+              { "x": 0, "y": -1, "z": 0 },
+              { "x": 1, "y": -1, "z": 0 }
+            ],
+            "BeltInputs": [],
+            "BeltOutputs": [],
+            "FluidContainers": [
+              {
+                "Name": "MixerInput0",
+                "Max": 150.0,
+                "AllowDrain": true,
+                "AllowGain": true,
+                "Position_L": { "x": 0.0, "y": -1.0, "z": 0.0 },
+                "Connections": [
+                  {
+                    "Position_L": { "x": 0, "y": -1, "z": 0 },
+                    "Direction_L": 2
+                  }
+                ]
+              },
+              {
+                "Name": "MixerInput1",
+                "Max": 150.0,
+                "AllowDrain": true,
+                "AllowGain": true,
+                "Position_L": { "x": 0.0, "y": 0.0, "z": 0.0 },
+                "Connections": [
+                  { "Position_L": { "x": 0, "y": 0, "z": 0 }, "Direction_L": 2 }
+                ]
+              },
+              {
+                "Name": "MixerOutput",
+                "Max": 150.0,
+                "AllowDrain": true,
+                "AllowGain": false,
+                "Position_L": { "x": 2.0, "y": 0.0, "z": 0.0 },
+                "Connections": [
+                  { "Position_L": { "x": 2, "y": 0, "z": 0 }, "Direction_L": 0 }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Id": "PainterBuilding",
+    "Title": "Painter",
+    "Description": "Allows to paint shapes.",
+    "Variants": [
+      {
+        "Id": "PainterDefaultVariant",
+        "Title": "Painter",
+        "Removable": true,
+        "Selectable": true,
+        "PlayerBuildable": true,
+        "AutoConnectBelts": true,
+        "BlueprintCost": 1,
+        "PipetteOverrideVariantId": null,
+        "InternalVariants": [
+          {
+            "Id": "PainterDefaultInternalVariant",
+            "MirroredInternalVariantId": null,
+            "Tiles": [
+              { "x": 0, "y": -1, "z": 0 },
+              { "x": 0, "y": 0, "z": 0 }
+            ],
+            "BeltInputs": [
+              { "Position_L": { "x": 0, "y": -1, "z": 0 }, "Direction_L": 2 }
+            ],
+            "BeltOutputs": [
+              { "Position_L": { "x": 0, "y": -1, "z": 0 }, "Direction_L": 0 }
+            ],
+            "FluidContainers": [
+              {
+                "Name": "Painter",
+                "Max": 150.0,
+                "AllowDrain": true,
+                "AllowGain": true,
+                "Position_L": { "x": 0.0, "y": 0.0, "z": 0.0 },
+                "Connections": [
+                  {
+                    "Position_L": { "x": 0, "y": 0, "z": 0 },
+                    "Direction_L": 0
+                  },
+                  {
+                    "Position_L": { "x": 0, "y": 0, "z": 0 },
+                    "Direction_L": 1
+                  },
+                  { "Position_L": { "x": 0, "y": 0, "z": 0 }, "Direction_L": 2 }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Id": "BeltPortBuilding",
+    "Title": "Belt Catapults",
+    "Description": "RANGE IS LESS THAN SHOWN! Allows to transport shapes between islands.",
+    "Variants": [
+      {
+        "Id": "BeltPortSenderVariant",
+        "Title": "Belt Ejector",
+        "Removable": true,
+        "Selectable": true,
+        "PlayerBuildable": true,
+        "AutoConnectBelts": true,
+        "BlueprintCost": 1,
+        "PipetteOverrideVariantId": null,
+        "InternalVariants": [
+          {
+            "Id": "BeltPortSenderInternalVariant",
+            "MirroredInternalVariantId": null,
+            "Tiles": [{ "x": 0, "y": 0, "z": 0 }],
+            "BeltInputs": [
+              { "Position_L": { "x": 0, "y": 0, "z": 0 }, "Direction_L": 2 }
+            ],
+            "BeltOutputs": [],
+            "FluidContainers": []
+          }
+        ]
+      },
+      {
+        "Id": "BeltPortReceiverVariant",
+        "Title": "Belt Receiver",
+        "Removable": true,
+        "Selectable": true,
+        "PlayerBuildable": true,
+        "AutoConnectBelts": true,
+        "BlueprintCost": 1,
+        "PipetteOverrideVariantId": null,
+        "InternalVariants": [
+          {
+            "Id": "BeltPortReceiverInternalVariant",
+            "MirroredInternalVariantId": null,
+            "Tiles": [{ "x": 0, "y": 0, "z": 0 }],
+            "BeltInputs": [],
+            "BeltOutputs": [
+              { "Position_L": { "x": 0, "y": 0, "z": 0 }, "Direction_L": 0 }
+            ],
+            "FluidContainers": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Id": "HubBuilding",
+    "Title": "Hub",
+    "Description": "The central hub.",
+    "Variants": []
+  },
+  {
+    "Id": "PipeUpBuilding",
+    "Title": "Pipe Pump",
+    "Description": "Allows to transport fluids between layers.",
+    "Variants": [
+      {
+        "Id": "PipeUpForwardVariant",
+        "Title": "Pipe Pump (Front)",
+        "Removable": true,
+        "Selectable": true,
+        "PlayerBuildable": true,
+        "AutoConnectBelts": true,
+        "BlueprintCost": 1,
+        "PipetteOverrideVariantId": "PipeDefaultVariant",
+        "InternalVariants": [
+          {
+            "Id": "PipeUpForwardInternalVariant",
+            "MirroredInternalVariantId": null,
+            "Tiles": [
+              { "x": 0, "y": 0, "z": 0 },
+              { "x": 0, "y": 0, "z": 1 }
+            ],
+            "BeltInputs": [],
+            "BeltOutputs": [],
+            "FluidContainers": [
+              {
+                "Name": "Pipe",
+                "Max": 50.0,
+                "AllowDrain": true,
+                "AllowGain": true,
+                "Position_L": { "x": 0.0, "y": 0.0, "z": 0.0 },
+                "Connections": [
+                  {
+                    "Position_L": { "x": 0, "y": 0, "z": 0 },
+                    "Direction_L": 2
+                  },
+                  { "Position_L": { "x": 0, "y": 0, "z": 1 }, "Direction_L": 0 }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "Id": "PipeUpRightVariant",
+        "Title": "Pipe Pump (Right)",
+        "Removable": true,
+        "Selectable": true,
+        "PlayerBuildable": true,
+        "AutoConnectBelts": true,
+        "BlueprintCost": 1,
+        "PipetteOverrideVariantId": "PipeDefaultVariant",
+        "InternalVariants": [
+          {
+            "Id": "PipeUpRightInternalVariant",
+            "MirroredInternalVariantId": null,
+            "Tiles": [
+              { "x": 0, "y": 0, "z": 0 },
+              { "x": 0, "y": 0, "z": 1 }
+            ],
+            "BeltInputs": [],
+            "BeltOutputs": [],
+            "FluidContainers": [
+              {
+                "Name": "Pipe",
+                "Max": 50.0,
+                "AllowDrain": true,
+                "AllowGain": true,
+                "Position_L": { "x": 0.0, "y": 0.0, "z": 0.0 },
+                "Connections": [
+                  {
+                    "Position_L": { "x": 0, "y": 0, "z": 0 },
+                    "Direction_L": 2
+                  },
+                  { "Position_L": { "x": 0, "y": 0, "z": 1 }, "Direction_L": 1 }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "Id": "PipeUpBackwardVariant",
+        "Title": "Pipe Pump (Back)",
+        "Removable": true,
+        "Selectable": true,
+        "PlayerBuildable": true,
+        "AutoConnectBelts": true,
+        "BlueprintCost": 1,
+        "PipetteOverrideVariantId": "PipeDefaultVariant",
+        "InternalVariants": [
+          {
+            "Id": "PipeUpBackwardInternalVariant",
+            "MirroredInternalVariantId": null,
+            "Tiles": [
+              { "x": 0, "y": 0, "z": 0 },
+              { "x": 0, "y": 0, "z": 1 }
+            ],
+            "BeltInputs": [],
+            "BeltOutputs": [],
+            "FluidContainers": [
+              {
+                "Name": "Pipe",
+                "Max": 50.0,
+                "AllowDrain": true,
+                "AllowGain": true,
+                "Position_L": { "x": 0.0, "y": 0.0, "z": 0.0 },
+                "Connections": [
+                  {
+                    "Position_L": { "x": 0, "y": 0, "z": 0 },
+                    "Direction_L": 2
+                  },
+                  { "Position_L": { "x": 0, "y": 0, "z": 1 }, "Direction_L": 2 }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "Id": "PipeUpLeftVariant",
+        "Title": "Pipe Pump (Left)",
+        "Removable": true,
+        "Selectable": true,
+        "PlayerBuildable": true,
+        "AutoConnectBelts": true,
+        "BlueprintCost": 1,
+        "PipetteOverrideVariantId": "PipeDefaultVariant",
+        "InternalVariants": [
+          {
+            "Id": "PipeUpLeftInternalVariant",
+            "MirroredInternalVariantId": null,
+            "Tiles": [
+              { "x": 0, "y": 0, "z": 0 },
+              { "x": 0, "y": 0, "z": 1 }
+            ],
+            "BeltInputs": [],
+            "BeltOutputs": [],
+            "FluidContainers": [
+              {
+                "Name": "Pipe",
+                "Max": 50.0,
+                "AllowDrain": true,
+                "AllowGain": true,
+                "Position_L": { "x": 0.0, "y": 0.0, "z": 0.0 },
+                "Connections": [
+                  {
+                    "Position_L": { "x": 0, "y": 0, "z": 0 },
+                    "Direction_L": 2
+                  },
+                  { "Position_L": { "x": 0, "y": 0, "z": 1 }, "Direction_L": 3 }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Id": "PipeDownBuilding",
+    "Title": "Pipe Down",
+    "Description": "Allows to transport fluids between layers.",
+    "Variants": [
+      {
+        "Id": "PipeDownForwardVariant",
+        "Title": "Pipe Down (Front)",
+        "Removable": true,
+        "Selectable": true,
+        "PlayerBuildable": true,
+        "AutoConnectBelts": true,
+        "BlueprintCost": 1,
+        "PipetteOverrideVariantId": "PipeDefaultVariant",
+        "InternalVariants": [
+          {
+            "Id": "PipeDownForwardInternalVariant",
+            "MirroredInternalVariantId": null,
+            "Tiles": [
+              { "x": 0, "y": 0, "z": 0 },
+              { "x": 0, "y": 0, "z": -1 }
+            ],
+            "BeltInputs": [],
+            "BeltOutputs": [],
+            "FluidContainers": [
+              {
+                "Name": "Pipe",
+                "Max": 50.0,
+                "AllowDrain": true,
+                "AllowGain": true,
+                "Position_L": { "x": 0.0, "y": 0.0, "z": 0.0 },
+                "Connections": [
+                  {
+                    "Position_L": { "x": 0, "y": 0, "z": 0 },
+                    "Direction_L": 2
+                  },
+                  {
+                    "Position_L": { "x": 0, "y": 0, "z": -1 },
+                    "Direction_L": 0
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "Id": "PipeDownRightVariant",
+        "Title": "Pipe Down (Right)",
+        "Removable": true,
+        "Selectable": true,
+        "PlayerBuildable": true,
+        "AutoConnectBelts": true,
+        "BlueprintCost": 1,
+        "PipetteOverrideVariantId": "PipeDefaultVariant",
+        "InternalVariants": [
+          {
+            "Id": "PipeDownRightInternalVariant",
+            "MirroredInternalVariantId": null,
+            "Tiles": [
+              { "x": 0, "y": 0, "z": 0 },
+              { "x": 0, "y": 0, "z": -1 }
+            ],
+            "BeltInputs": [],
+            "BeltOutputs": [],
+            "FluidContainers": [
+              {
+                "Name": "Pipe",
+                "Max": 50.0,
+                "AllowDrain": true,
+                "AllowGain": true,
+                "Position_L": { "x": 0.0, "y": 0.0, "z": 0.0 },
+                "Connections": [
+                  {
+                    "Position_L": { "x": 0, "y": 0, "z": 0 },
+                    "Direction_L": 2
+                  },
+                  {
+                    "Position_L": { "x": 0, "y": 0, "z": -1 },
+                    "Direction_L": 1
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "Id": "PipeDownBackwardVariant",
+        "Title": "Pipe Down (Back)",
+        "Removable": true,
+        "Selectable": true,
+        "PlayerBuildable": true,
+        "AutoConnectBelts": true,
+        "BlueprintCost": 1,
+        "PipetteOverrideVariantId": "PipeDefaultVariant",
+        "InternalVariants": [
+          {
+            "Id": "PipeDownBackwardInternalVariant",
+            "MirroredInternalVariantId": null,
+            "Tiles": [
+              { "x": 0, "y": 0, "z": 0 },
+              { "x": 0, "y": 0, "z": -1 }
+            ],
+            "BeltInputs": [],
+            "BeltOutputs": [],
+            "FluidContainers": [
+              {
+                "Name": "Pipe",
+                "Max": 50.0,
+                "AllowDrain": true,
+                "AllowGain": true,
+                "Position_L": { "x": 0.0, "y": 0.0, "z": 0.0 },
+                "Connections": [
+                  {
+                    "Position_L": { "x": 0, "y": 0, "z": 0 },
+                    "Direction_L": 2
+                  },
+                  {
+                    "Position_L": { "x": 0, "y": 0, "z": -1 },
+                    "Direction_L": 2
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "Id": "PipeDownLeftVariant",
+        "Title": "Pipe Down (Left)",
+        "Removable": true,
+        "Selectable": true,
+        "PlayerBuildable": true,
+        "AutoConnectBelts": true,
+        "BlueprintCost": 1,
+        "PipetteOverrideVariantId": "PipeDefaultVariant",
+        "InternalVariants": [
+          {
+            "Id": "PipeDownLeftInternalVariant",
+            "MirroredInternalVariantId": null,
+            "Tiles": [
+              { "x": 0, "y": 0, "z": 0 },
+              { "x": 0, "y": 0, "z": -1 }
+            ],
+            "BeltInputs": [],
+            "BeltOutputs": [],
+            "FluidContainers": [
+              {
+                "Name": "Pipe",
+                "Max": 50.0,
+                "AllowDrain": true,
+                "AllowGain": true,
+                "Position_L": { "x": 0.0, "y": 0.0, "z": 0.0 },
+                "Connections": [
+                  {
+                    "Position_L": { "x": 0, "y": 0, "z": 0 },
+                    "Direction_L": 2
+                  },
+                  {
+                    "Position_L": { "x": 0, "y": 0, "z": -1 },
+                    "Direction_L": 3
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Id": "ArtistPlaygroundBuilding",
+    "Title": "[[building.ArtistPlaygroundBuilding.title]]",
+    "Description": "[[building.ArtistPlaygroundBuilding.description]]",
+    "Variants": [
+      {
+        "Id": "ArtistPlaygroundBuildingVariant",
+        "Title": "Internal Building",
+        "Removable": true,
+        "Selectable": true,
+        "PlayerBuildable": true,
+        "AutoConnectBelts": true,
+        "BlueprintCost": 1,
+        "PipetteOverrideVariantId": null,
+        "InternalVariants": [
+          {
+            "Id": "ArtistPlaygroundBuildingInternalVariant",
+            "MirroredInternalVariantId": null,
+            "Tiles": [{ "x": 0, "y": 0, "z": 0 }],
+            "BeltInputs": [],
+            "BeltOutputs": [],
+            "FluidContainers": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Id": "FluidStorageBuilding",
+    "Title": "Fluid Tank",
+    "Description": "Allows to store fluids.",
+    "Variants": [
+      {
+        "Id": "FluidStorageDefaultVariant",
+        "Title": "Tank",
+        "Removable": true,
+        "Selectable": true,
+        "PlayerBuildable": true,
+        "AutoConnectBelts": true,
+        "BlueprintCost": 1,
+        "PipetteOverrideVariantId": null,
+        "InternalVariants": [
+          {
+            "Id": "FluidStorageDefaultInternalVariant",
+            "MirroredInternalVariantId": null,
+            "Tiles": [
+              { "x": -1, "y": 0, "z": 0 },
+              { "x": -1, "y": -1, "z": 0 },
+              { "x": 0, "y": 0, "z": 0 },
+              { "x": 0, "y": -1, "z": 0 }
+            ],
+            "BeltInputs": [],
+            "BeltOutputs": [],
+            "FluidContainers": [
+              {
+                "Name": "FluidStorage",
+                "Max": 2000.0,
+                "AllowDrain": true,
+                "AllowGain": true,
+                "Position_L": { "x": 0.0, "y": 0.0, "z": 0.0 },
+                "Connections": [
+                  {
+                    "Position_L": { "x": -1, "y": 0, "z": 0 },
+                    "Direction_L": 2
+                  },
+                  {
+                    "Position_L": { "x": 0, "y": -1, "z": 0 },
+                    "Direction_L": 0
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Id": "FluidPackerBuilding",
+    "Title": "Fluid Filler",
+    "Description": "Allows to fill fluids into barrels.",
+    "Variants": [
+      {
+        "Id": "FluidPackerDefaultVariant",
+        "Title": "Fluid Filler",
+        "Removable": true,
+        "Selectable": true,
+        "PlayerBuildable": true,
+        "AutoConnectBelts": true,
+        "BlueprintCost": 1,
+        "PipetteOverrideVariantId": null,
+        "InternalVariants": [
+          {
+            "Id": "FluidPackerDefaultInternalVariant",
+            "MirroredInternalVariantId": null,
+            "Tiles": [
+              { "x": 0, "y": 0, "z": 0 },
+              { "x": 0, "y": 0, "z": 1 }
+            ],
+            "BeltInputs": [
+              { "Position_L": { "x": 0, "y": 0, "z": 0 }, "Direction_L": 2 }
+            ],
+            "BeltOutputs": [
+              { "Position_L": { "x": 0, "y": 0, "z": 0 }, "Direction_L": 0 }
+            ],
+            "FluidContainers": [
+              {
+                "Name": "FluidPacker",
+                "Max": 150.0,
+                "AllowDrain": true,
+                "AllowGain": true,
+                "Position_L": { "x": 0.0, "y": 0.0, "z": 0.0 },
+                "Connections": [
+                  { "Position_L": { "x": 0, "y": 0, "z": 1 }, "Direction_L": 2 }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Id": "FluidUnpackerBuilding",
+    "Title": "Fluid Drainer",
+    "Description": "Allows to drain barrels.",
+    "Variants": [
+      {
+        "Id": "FluidUnpackerDefaultVariant",
+        "Title": "Fluid Drainer",
+        "Removable": true,
+        "Selectable": true,
+        "PlayerBuildable": true,
+        "AutoConnectBelts": true,
+        "BlueprintCost": 1,
+        "PipetteOverrideVariantId": null,
+        "InternalVariants": [
+          {
+            "Id": "FluidUnpackerDefaultInternalVariant",
+            "MirroredInternalVariantId": null,
+            "Tiles": [
+              { "x": 0, "y": 0, "z": 0 },
+              { "x": 0, "y": 0, "z": 1 }
+            ],
+            "BeltInputs": [
+              { "Position_L": { "x": 0, "y": 0, "z": 1 }, "Direction_L": 2 }
+            ],
+            "BeltOutputs": [
+              { "Position_L": { "x": 0, "y": 0, "z": 1 }, "Direction_L": 0 }
+            ],
+            "FluidContainers": [
+              {
+                "Name": "FluidPacker",
+                "Max": 150.0,
+                "AllowDrain": true,
+                "AllowGain": true,
+                "Position_L": { "x": 0.0, "y": 0.0, "z": 0.0 },
+                "Connections": [
+                  { "Position_L": { "x": 0, "y": 0, "z": 0 }, "Direction_L": 2 }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Id": "StorageBuilding",
+    "Title": "Storage",
+    "Description": "Allows to buffer shapes.",
+    "Variants": [
+      {
+        "Id": "StorageDefaultVariant",
+        "Title": "Storage",
+        "Removable": true,
+        "Selectable": true,
+        "PlayerBuildable": true,
+        "AutoConnectBelts": true,
+        "BlueprintCost": 4,
+        "PipetteOverrideVariantId": null,
+        "InternalVariants": [
+          {
+            "Id": "StorageDefaultInternalVariant",
+            "MirroredInternalVariantId": null,
+            "Tiles": [
+              { "x": 0, "y": 0, "z": 0 },
+              { "x": 1, "y": 0, "z": 0 },
+              { "x": 0, "y": 0, "z": 1 },
+              { "x": 1, "y": 0, "z": 1 }
+            ],
+            "BeltInputs": [
+              { "Position_L": { "x": 0, "y": 0, "z": 0 }, "Direction_L": 2 }
+            ],
+            "BeltOutputs": [
+              { "Position_L": { "x": 1, "y": 0, "z": 0 }, "Direction_L": 0 }
+            ],
+            "FluidContainers": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Id": "SandboxItemProducerBuilding",
+    "Title": "Item Producer (Sandbox)",
+    "Description": "Allows to produce a given shape infinitely.",
+    "Variants": [
+      {
+        "Id": "SandboxItemProducerDefaultVariant",
+        "Title": "Item Producer",
+        "Removable": true,
+        "Selectable": true,
+        "PlayerBuildable": true,
+        "AutoConnectBelts": true,
+        "BlueprintCost": 1,
+        "PipetteOverrideVariantId": null,
+        "InternalVariants": [
+          {
+            "Id": "SandboxItemProducerDefaultInternalVariant",
+            "MirroredInternalVariantId": null,
+            "Tiles": [{ "x": 0, "y": 0, "z": 0 }],
+            "BeltInputs": [],
+            "BeltOutputs": [
+              { "Position_L": { "x": 0, "y": 0, "z": 0 }, "Direction_L": 0 }
+            ],
+            "FluidContainers": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Id": "SandboxFluidProducerBuilding",
+    "Title": "Fluid Producer (Sandbox)",
+    "Description": "Allows to produce a given fluid infinitely.",
+    "Variants": [
+      {
+        "Id": "SandboxFluidProducerDefaultVariant",
+        "Title": "Fluid Producer",
+        "Removable": true,
+        "Selectable": true,
+        "PlayerBuildable": true,
+        "AutoConnectBelts": true,
+        "BlueprintCost": 1,
+        "PipetteOverrideVariantId": null,
+        "InternalVariants": [
+          {
+            "Id": "SandboxFluidProducerDefaultInternalVariant",
+            "MirroredInternalVariantId": null,
+            "Tiles": [{ "x": 0, "y": 0, "z": 0 }],
+            "BeltInputs": [],
+            "BeltOutputs": [],
+            "FluidContainers": [
+              {
+                "Name": "Container",
+                "Max": 500.0,
+                "AllowDrain": true,
+                "AllowGain": false,
+                "Position_L": { "x": 0.0, "y": 0.0, "z": 0.0 },
+                "Connections": [
+                  { "Position_L": { "x": 0, "y": 0, "z": 0 }, "Direction_L": 0 }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Id": "StackerBuilding",
+    "Title": "Stacker",
+    "Description": "Allows to stack one shape on top of another. Depending on their shape, they either merge or stack.",
+    "Variants": [
+      {
+        "Id": "StackerDefaultVariant",
+        "Title": "Stacker",
+        "Removable": true,
+        "Selectable": true,
+        "PlayerBuildable": true,
+        "AutoConnectBelts": true,
+        "BlueprintCost": 2,
+        "PipetteOverrideVariantId": null,
+        "InternalVariants": [
+          {
+            "Id": "StackerDefaultInternalVariant",
+            "MirroredInternalVariantId": null,
+            "Tiles": [
+              { "x": 0, "y": 0, "z": 0 },
+              { "x": 0, "y": 0, "z": 1 }
+            ],
+            "BeltInputs": [
+              { "Position_L": { "x": 0, "y": 0, "z": 0 }, "Direction_L": 2 },
+              { "Position_L": { "x": 0, "y": 0, "z": 1 }, "Direction_L": 2 }
+            ],
+            "BeltOutputs": [
+              { "Position_L": { "x": 0, "y": 0, "z": 0 }, "Direction_L": 0 }
+            ],
+            "FluidContainers": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Id": "BarrelProducerBuilding",
+    "Title": "Hydraulic Press",
+    "Description": "Allows to produce barrels from shapes to transport fluids between islands.",
+    "Variants": [
+      {
+        "Id": "BarrelProducerDefaultVariant",
+        "Title": "Hydraulic Press",
+        "Removable": true,
+        "Selectable": true,
+        "PlayerBuildable": true,
+        "AutoConnectBelts": true,
+        "BlueprintCost": 1,
+        "PipetteOverrideVariantId": null,
+        "InternalVariants": [
+          {
+            "Id": "BarrelProducerDefaultInternalVariant",
+            "MirroredInternalVariantId": null,
+            "Tiles": [{ "x": 0, "y": 0, "z": 0 }],
+            "BeltInputs": [
+              { "Position_L": { "x": 0, "y": 0, "z": 0 }, "Direction_L": 2 }
+            ],
+            "BeltOutputs": [
+              { "Position_L": { "x": 0, "y": 0, "z": 0 }, "Direction_L": 0 }
+            ],
+            "FluidContainers": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Id": "PinPusherBuilding",
+    "Title": "Pin Pusher",
+    "Description": "Removes one quadrant and instead replaces it with a pin, allowing to create floating layers.",
+    "Variants": [
+      {
+        "Id": "PinPusherDefaultVariant",
+        "Title": "Pin Pusher",
+        "Removable": true,
+        "Selectable": true,
+        "PlayerBuildable": true,
+        "AutoConnectBelts": true,
+        "BlueprintCost": 1,
+        "PipetteOverrideVariantId": null,
+        "InternalVariants": [
+          {
+            "Id": "PinPusherDefaultInternalVariant",
+            "MirroredInternalVariantId": null,
+            "Tiles": [{ "x": 0, "y": 0, "z": 0 }],
+            "BeltInputs": [
+              { "Position_L": { "x": 0, "y": 0, "z": 0 }, "Direction_L": 2 }
+            ],
+            "BeltOutputs": [
+              { "Position_L": { "x": 0, "y": 0, "z": 0 }, "Direction_L": 0 }
+            ],
+            "FluidContainers": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Id": "TrashBuilding",
+    "Title": "Trash Can",
+    "Description": "Allows to get rid of any waste into the void.",
+    "Variants": [
+      {
+        "Id": "TrashDefaultVariant",
+        "Title": "Trash",
+        "Removable": true,
+        "Selectable": true,
+        "PlayerBuildable": true,
+        "AutoConnectBelts": false,
+        "BlueprintCost": 1,
+        "PipetteOverrideVariantId": null,
+        "InternalVariants": [
+          {
+            "Id": "TrashDefaultInternalVariant",
+            "MirroredInternalVariantId": null,
+            "Tiles": [{ "x": 0, "y": 0, "z": 0 }],
+            "BeltInputs": [
+              { "Position_L": { "x": 0, "y": 0, "z": 0 }, "Direction_L": 0 },
+              { "Position_L": { "x": 0, "y": 0, "z": 0 }, "Direction_L": 1 },
+              { "Position_L": { "x": 0, "y": 0, "z": 0 }, "Direction_L": 2 },
+              { "Position_L": { "x": 0, "y": 0, "z": 0 }, "Direction_L": 3 }
+            ],
+            "BeltOutputs": [],
+            "FluidContainers": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Id": "BeltReaderBuilding",
+    "Title": "Belt Reader",
+    "Description": "Reports the current belt speed and allows reading the belt contents via wires.",
+    "Variants": [
+      {
+        "Id": "BeltReaderDefaultVariant",
+        "Title": "Belt Reader",
+        "Removable": true,
+        "Selectable": true,
+        "PlayerBuildable": true,
+        "AutoConnectBelts": true,
+        "BlueprintCost": 1,
+        "PipetteOverrideVariantId": null,
+        "InternalVariants": [
+          {
+            "Id": "BeltReaderDefaultInternalVariant",
+            "MirroredInternalVariantId": null,
+            "Tiles": [{ "x": 0, "y": 0, "z": 0 }],
+            "BeltInputs": [
+              { "Position_L": { "x": 0, "y": 0, "z": 0 }, "Direction_L": 2 }
+            ],
+            "BeltOutputs": [
+              { "Position_L": { "x": 0, "y": 0, "z": 0 }, "Direction_L": 0 }
+            ],
+            "FluidContainers": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Id": "LabelBuilding",
+    "Title": "Label",
+    "Description": "Allows to configure a text to show as a label.",
+    "Variants": [
+      {
+        "Id": "LabelDefaultVariant",
+        "Title": "Label",
+        "Removable": true,
+        "Selectable": true,
+        "PlayerBuildable": true,
+        "AutoConnectBelts": true,
+        "BlueprintCost": 1,
+        "PipetteOverrideVariantId": null,
+        "InternalVariants": [
+          {
+            "Id": "LabelDefaultInternalVariant",
+            "MirroredInternalVariantId": null,
+            "Tiles": [
+              { "x": -1, "y": 0, "z": 0 },
+              { "x": 0, "y": 0, "z": 0 },
+              { "x": 1, "y": 0, "z": 0 },
+              { "x": -2, "y": 0, "z": 0 },
+              { "x": 2, "y": 0, "z": 0 }
+            ],
+            "BeltInputs": [],
+            "BeltOutputs": [],
+            "FluidContainers": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Id": "CrystalGeneratorBuilding",
+    "Title": "Crystal Generator",
+    "Description": "EXPERIMENTAL. Fills empty spots with crystals.",
+    "Variants": [
+      {
+        "Id": "CrystalGeneratorDefaultVariant",
+        "Title": "Crystal Generator",
+        "Removable": true,
+        "Selectable": true,
+        "PlayerBuildable": true,
+        "AutoConnectBelts": true,
+        "BlueprintCost": 1,
+        "PipetteOverrideVariantId": null,
+        "InternalVariants": [
+          {
+            "Id": "CrystalGeneratorDefaultInternalVariant",
+            "MirroredInternalVariantId": null,
+            "Tiles": [{ "x": 0, "y": 0, "z": 0 }],
+            "BeltInputs": [
+              { "Position_L": { "x": 0, "y": 0, "z": 0 }, "Direction_L": 2 }
+            ],
+            "BeltOutputs": [
+              { "Position_L": { "x": 0, "y": 0, "z": 0 }, "Direction_L": 0 }
+            ],
+            "FluidContainers": []
+          }
+        ]
+      }
+    ]
+  }
+]

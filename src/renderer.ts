@@ -1,7 +1,7 @@
 import * as path from "path";
 import { Image, createCanvas, loadImage } from "canvas";
 import { Blueprint } from "./blueprint.ts";
-import { Rotation, Vector } from "./vector.ts";
+import { Rotation, Vector, rot } from "./vector.ts";
 import { buildings, placeholder } from "./buildings.ts";
 import { CACHE_DIR, IMAGE_SIZE, LAYERS } from "./config.ts";
 
@@ -14,7 +14,7 @@ const missingImages: string[] = [];
 
 let inited = false;
 export async function init() {
-    for (const name in buildings) {
+    for (const [name, _] of buildings) {
         try {
             images.set(name, await Promise.all(new Array(LAYERS).fill(undefined).map((_, i) => loadImage(path.join(CACHE_DIR, `${name}-${i}.png`)))));
         } catch {
@@ -70,7 +70,7 @@ function sketch(blueprint: Blueprint) {
     const missingBuildings: Set<string> = new Set();
     for (const entry of entrys) {
         const name = entry.T.replace("InternalVariant", "");
-        const bounds = buildings[name] ?? placeholder;
+        const bounds = buildings.get(name) ?? placeholder;
         if (bounds === placeholder) {
             missingBuildings.add(name);
         }
@@ -82,12 +82,12 @@ function sketch(blueprint: Blueprint) {
         )).map(v => v.rotate(r).add(ORIGINS[r]).add(pos));
 
         data.min = data.min.min(corners[r]);
-        data.max = data.max.max(corners[(2+r)%4]);
+        data.max = data.max.max(corners[rot(2+r)]);
 
         for (const { pos, dir } of bounds.acceptors.concat(bounds.ejectors)) {
             const v = new Vector(pos.x, pos.y).rotate(r).add(corners[0]);
             const { x, y } = v;
-            const pr = (r+dir)%4 as Rotation;
+            const pr = rot(r+dir);
             const l = entry.L+bounds.offset.z+pos.z;
             const req = reqs[l];
             if (!req.has(x)) {
@@ -193,7 +193,7 @@ export async function render(blueprint: Blueprint) {
         }
         for (const step of data.layers[l]) {
             const name = step.t;
-            const bounds = buildings[name] ?? placeholder;
+            const bounds = buildings.get(name) ?? placeholder;
 
             context.save();
             context.translate(step.x, step.y);

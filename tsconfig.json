@@ -4,6 +4,7 @@
         "target": "ESNext",
         "moduleResolution": "nodenext",
         "allowImportingTsExtensions": true,
+        "resolveJsonModule": true,
         "strict": true,
     },
     "ts-node": {

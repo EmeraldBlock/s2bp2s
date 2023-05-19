@@ -1,4 +1,7 @@
 export type Rotation = 0 | 1 | 2 | 3;
+export function rot(r: number) {
+    return (r%4+4)%4 as Rotation;
+}
 
 export class Vector {
     x: number;
@@ -11,7 +14,7 @@ export class Vector {
         return new Vector(this.x*a, this.y*a);
     }
     rotate(r: number) {
-        switch ((r%4+4)%4 as Rotation) {
+        switch (rot(r)) {
         case 0:
             return new Vector(this.x, this.y);
         case 1:
