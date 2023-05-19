@@ -1,13 +1,13 @@
 {
-    "compilerOptions": {
-        "module": "ESNext",
-        "target": "ESNext",
-        "moduleResolution": "nodenext",
-        "allowImportingTsExtensions": true,
-        "resolveJsonModule": true,
-        "strict": true,
-    },
-    "ts-node": {
-        "esm": true,
-    },
+	"compilerOptions": {
+		"module": "ESNext",
+		"target": "ESNext",
+		"moduleResolution": "nodenext",
+		"allowImportingTsExtensions": true,
+		"resolveJsonModule": true,
+		"strict": true
+	},
+	"ts-node": {
+		"esm": true
+	}
 }

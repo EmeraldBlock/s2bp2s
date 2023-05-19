@@ -9,35 +9,40 @@ import { deserialize } from "../../../src/serializer.ts";
 import { render, init } from "../../../src/renderer.ts";
 
 export default {
-    name: "draw",
-    data: new Discord.SlashCommandBuilder()
-        .addStringOption(option => option
-                .setName("blueprint")
-                .setDescription("The blueprint string.")
-                .setRequired(true)
-        ),
-    desc: "Draws a schematic of a blueprint string.",
-    init: async () => {
-        await init();
-    },
-    execute: async (interaction, data) => {
-        const serialized = interaction.options.getString("blueprint")!;
-        try {
-            const blueprint = await deserialize(serialized);
-            await interaction.deferReply();
-            const buffer = await render(blueprint);
-            const attachment = new Discord.AttachmentBuilder(buffer, { name: "schematic.png" });
-            const embed = new Discord.EmbedBuilder({
-                color: config.colors.info,
-                title: `${blueprint.BP.Entries.length} buildings`,
-                image: { url: "attachment://schematic.png" },
-            });
-            await interaction.editReply({ embeds: [embed], files: [attachment] });
-        } catch (err) {
-            if (err instanceof TypeError) {
-                throw new BotError("Invalid blueprint string", "Check that your blueprint string is complete and has no stray characters!");
-            }
-            throw err;
-        }
-    },
+	name: "draw",
+	data: new Discord.SlashCommandBuilder().addStringOption((option) =>
+		option
+			.setName("blueprint")
+			.setDescription("The blueprint string.")
+			.setRequired(true),
+	),
+	desc: "Draws a schematic of a blueprint string.",
+	init: async () => {
+		await init();
+	},
+	execute: async (interaction) => {
+		const serialized = interaction.options.getString("blueprint")!;
+		try {
+			const blueprint = await deserialize(serialized);
+			await interaction.deferReply();
+			const buffer = await render(blueprint);
+			const attachment = new Discord.AttachmentBuilder(buffer, {
+				name: "schematic.png",
+			});
+			const embed = new Discord.EmbedBuilder({
+				color: config.colors.info,
+				title: `${blueprint.BP.Entries.length} buildings`,
+				image: { url: "attachment://schematic.png" },
+			});
+			await interaction.editReply({ embeds: [embed], files: [attachment] });
+		} catch (err) {
+			if (err instanceof TypeError) {
+				throw new BotError(
+					"Invalid blueprint string",
+					"Check that your blueprint string is complete and has no stray characters!",
+				);
+			}
+			throw err;
+		}
+	},
 } satisfies Command;
