@@ -19,11 +19,12 @@ export default [
 	},
 	{
 		files: ["**/*.ts", "**/*.cts", "**/*.mts"],
+		ignores: ["**/services/web/**/*"],
 		plugins: {
-			"@typescript-eslint": ts,
+			"@typescript-eslint": /** @type {any} */ (ts),
 		},
 		languageOptions: {
-			parser: tsParser,
+			parser: /** @type {any} */ (tsParser),
 			parserOptions: {
 				project: true,
 			},
@@ -42,10 +43,10 @@ export default [
 	},
 	{
 		plugins: {
-			prettier,
+			prettier: /** @type {any} */ (prettier),
 		},
 		rules: {
-			...prettierConfig.rules,
+			.../** @type {any} */ (prettierConfig.rules),
 			"prettier/prettier": "warn",
 		},
 	},
